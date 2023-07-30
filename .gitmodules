@@ -1,12 +1,12 @@
-[submodule "vendor/imgui"]
-	path = vendor/imgui
+[submodule "deps/imgui"]
+	path = deps/imgui
 	url = https://github.com/ocornut/imgui.git
-[submodule "vendor/SFML"]
-	path = vendor/SFML
-	url = https://github.com/SFML/SFML.git
-[submodule "vendor/box2d"]
-	path = vendor/box2d
+[submodule "deps/box2d"]
+	path = deps/box2d
 	url = https://github.com/erincatto/box2d.git
-[submodule "vendor/spdlog"]
-	path = vendor/spdlog
+[submodule "deps/SFML"]
+	path = deps/SFML
+	url = https://github.com/SFML/SFML.git
+[submodule "deps/spdlog"]
+	path = deps/spdlog
 	url = https://github.com/gabime/spdlog.git

@@ -5,11 +5,13 @@ project "BillardAI"
     staticruntime "off"
     architecture "x64"
 
+    DependenciesDir = "%{wks.location}/deps"
+
     IncludeDir = {}
-    IncludeDir["spdlog"] = "../vendor/spdlog/include"
-    IncludeDir["imgui"] = "../vendor/imgui"
-    IncludeDir["SFML"] = "../vendor/SFML/include"
-    IncludeDir["box2d"] = "../vendor/box2d/include"
+    IncludeDir["spdlog"] = "%{DependenciesDir}/spdlog/include"
+    IncludeDir["imgui"] = "%{DependenciesDir}/imgui"
+    IncludeDir["SFML"] = "%{DependenciesDir}/SFML/include"
+    IncludeDir["box2d"] = "%{DependenciesDir}/box2d/include"
 
     targetdir ("bin/" .. OutputDir)
     objdir ("bin-int/" .. OutputDir)    
@@ -37,6 +39,11 @@ project "BillardAI"
         "ImGui",
         "SFML",
         "Box2D",
+    }
+
+    defines
+    {
+        "SFML_STATIC"
     }
 
 	filter "configurations:Debug"

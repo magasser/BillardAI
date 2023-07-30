@@ -71,10 +71,25 @@ project "SFML"
 
 	files
 	{
+		"SFML/src/SFML/System/*.hpp",
+		"SFML/src/SFML/System/*.cpp",
 		"SFML/src/SFML/Window/*.hpp",
 		"SFML/src/SFML/Window/*.cpp",
 		"SFML/src/SFML/Graphics/*.hpp",
 		"SFML/src/SFML/Graphics/*.cpp",
+	}
+
+	removefiles
+	{
+		"EGLCheck.hpp",
+		"EGLCheck.cpp",
+		"EglContext.hpp",
+		"EglContext.cpp",
+	}
+
+	libdirs
+	{
+		"SFML/extlibs/libs-msvc-universal/x64"
 	}
 
 	defines "SFML_STATIC"
@@ -85,13 +100,18 @@ project "SFML"
 		files
 		{
 			"SFML/src/SFML/Main/MainWin32.cpp",
+			"SFML/src/SFML/System/Win32/*.hpp",
+			"SFML/src/SFML/System/Win32/*.cpp",
 			"SFML/src/SFML/Window/Win32/*.hpp",
 			"SFML/src/SFML/Window/Win32/*.cpp",
 		}
 
 		links
 		{
-			"SFML/extlibs/libs-msvc-universal/x64/*.lib",
+			"opengl32.lib",
+			"winmm.lib",
+			"gdi32.lib",
+			"freetype.lib",
 		}
 
 	filter "configurations:Debug"
@@ -111,7 +131,7 @@ project "Box2D"
 	kind "StaticLib"
 	language "C++"
 	cppdialect "C++20"
-	staticruntime "off"
+    staticruntime "off"
 	warnings "off"
 
 	targetdir ("bin/" .. OutputDir .. "/%{prj.name}")

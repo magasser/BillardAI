@@ -1,7 +1,7 @@
 workspace "BillardAI"
     architecture "x64"    
     
-    OutputDir = "%{cfg.buildcfg}-%{cfg.architecture}"
+    OutputDir = "%{cfg.architecture}/%{cfg.buildcfg}"
 
     configurations
     {
@@ -16,7 +16,7 @@ workspace "BillardAI"
     }
 
     group "Dependencies"
-        include "vendor"
+        include "deps"
     group ""    
     
     include "BillardAI"

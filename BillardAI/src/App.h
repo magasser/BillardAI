@@ -1,10 +1,13 @@
 ﻿#pragma once
 
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+
 class App
 {
 public:
 	App(const std::string& name);
-	virtual ~App();
+	~App();
 
 	void Run();
 
@@ -14,4 +17,5 @@ private:
 
 private:
 	std::string m_Name;
+	sf::Window m_Window;
 };
