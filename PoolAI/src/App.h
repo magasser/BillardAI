@@ -3,6 +3,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
+#include "LayerList.h"
+
 class App
 {
 public:
@@ -11,11 +13,18 @@ public:
 
 	void Run();
 
+	sf::RenderWindow& GetWindow() { return m_Window; }
+
+	static App& Get() { return *s_Instance; }
+
 private:
 	void Init();
 	void Terminate();
 
 private:
 	std::string m_Name;
-	sf::Window m_Window;
+	sf::RenderWindow m_Window;
+	LayerList m_Layers;
+
+	static App* s_Instance;
 };

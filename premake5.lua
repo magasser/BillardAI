@@ -1,4 +1,4 @@
-workspace "BillardAI"
+workspace "PoolAI"
     architecture "x64"    
     
     OutputDir = "%{cfg.architecture}/%{cfg.buildcfg}"
@@ -19,5 +19,5 @@ workspace "BillardAI"
         include "deps"
     group ""    
     
-    include "BillardAI"
+    include "PoolAI"
 

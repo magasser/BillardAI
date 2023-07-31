@@ -1,4 +1,4 @@
-project "BillardAI"
+project "PoolAI"
     kind "ConsoleApp"
     language "C++"
     cppdialect "C++20"
@@ -47,17 +47,17 @@ project "BillardAI"
     }
 
 	filter "configurations:Debug"
-        defines "BA_DEBUG"
+        defines "PA_DEBUG"
 		runtime "Debug"
 		symbols "on"
 
 	filter "configurations:Release"
-        defines "BA_RELEASE"
+        defines "PA_RELEASE"
 		runtime "Release"
 		optimize "speed"
 
     filter "configurations:Dist"
-        defines "BA_DIST"
+        defines "PA_DIST"
 		runtime "Release"
 		optimize "speed"
         symbols "off"
