@@ -29,7 +29,7 @@ void App::Run()
 
 	while (m_Window.isOpen())
 	{
-		m_Window.clear(sf::Color::Black);
+		m_Window.clear(sf::Color(0x00006EFF));
 
 		Event event;
 		while (m_Window.pollEvent(event))
@@ -58,9 +58,7 @@ void App::Run()
 		for (const auto& layer : m_Layers)
 		{
 			layer->OnUIRender();
-		}
-
-		
+		}	
 
 		m_Window.display();
 	}	
@@ -72,7 +70,8 @@ void App::Init()
 
 	PA_LOG_INFO("Initializing {} App.", m_Name);
 
-	m_Window.create(sf::VideoMode(1280, 720), m_Name, sf::Style::Default);
+	m_Window.create(sf::VideoMode(1536, 864), m_Name, sf::Style::Default);
+	m_Window.setVerticalSyncEnabled(true);
 }
 
 void App::Terminate()

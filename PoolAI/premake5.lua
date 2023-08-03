@@ -10,6 +10,7 @@ project "PoolAI"
     IncludeDir = {}
     IncludeDir["spdlog"] = "%{DependenciesDir}/spdlog/include"
     IncludeDir["imgui"] = "%{DependenciesDir}/imgui"
+    IncludeDir["imguiSFML"] = "%{DependenciesDir}/imgui-sfml"
     IncludeDir["SFML"] = "%{DependenciesDir}/SFML/include"
     IncludeDir["box2d"] = "%{DependenciesDir}/box2d/include"
 
@@ -30,20 +31,20 @@ project "PoolAI"
         "src",
         "%{IncludeDir.spdlog}",
         "%{IncludeDir.imgui}",
+        "%{IncludeDir.imguiSFML}",
         "%{IncludeDir.SFML}",
         "%{IncludeDir.box2d}",
-    }
-
-    links
-    {
-        "ImGui",
-        "SFML",
-        "Box2D",
     }
 
     defines
     {
         "SFML_STATIC"
+    }
+
+    links
+    {
+        "ImGuiSFML",
+        "Box2D",
     }
 
 	filter "configurations:Debug"

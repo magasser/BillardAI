@@ -26,10 +26,56 @@
 		"imgui/imstb_textedit.h",
 		"imgui/imstb_truetype.h",
 		"imgui/imgui_demo.cpp",
-        -- "imgui/backends/imgui_impl_glfw.h",
-        -- "imgui/backends/imgui_impl_glfw.cpp",
-        -- "imgui/backends/imgui_impl_opengl3.h",
-        -- "imgui/backends/imgui_impl_opengl3.cpp",
+	}
+
+	filter "system:windows"
+		systemversion "latest"
+
+	filter "configurations:Debug"
+		runtime "Debug"
+		symbols "on"
+
+	filter "configurations:Release"
+		runtime "Release"
+		optimize "on"
+
+    filter "configurations:Dist"
+		runtime "Release"
+		optimize "on"
+        symbols "off"
+
+project "ImGuiSFML"
+	kind "StaticLib"
+	language "C++"
+	cppdialect "C++20"
+    staticruntime "off"
+	warnings "off"
+
+	targetdir ("bin/" .. OutputDir .. "/%{prj.name}")
+	objdir ("bin-int/" .. OutputDir .. "/%{prj.name}")
+
+	includedirs
+	{
+		"imgui",
+		"SFML/include",
+		"imgui-sfml",
+	}
+
+	files
+	{
+		"imgui-sfml/*.h",
+		"imgui-sfml/*.cpp",
+	}
+
+    defines
+    {
+        "SFML_STATIC"
+    }
+
+	links
+	{
+		"ImGui",
+		"SFML",
 	}
 
 	filter "system:windows"

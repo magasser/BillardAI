@@ -11,7 +11,7 @@ void Log::Init()
 {
 	spdlog::set_pattern("[%T] %^[%l]%$: %v");
 
-	auto duplicateFilter = std::make_shared<spdlog::sinks::dup_filter_sink_mt>(std::chrono::seconds(10));
+	auto duplicateFilter = std::make_shared<spdlog::sinks::dup_filter_sink_mt>(std::chrono::seconds(0));
 
 	duplicateFilter->add_sink(std::make_shared<spdlog::sinks::stdout_color_sink_mt>());
 	duplicateFilter->add_sink(std::make_shared<spdlog::sinks::basic_file_sink_mt>("logs/ExExplorer.log", true));

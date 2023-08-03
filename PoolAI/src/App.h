@@ -9,12 +9,12 @@ class App
 {
 public:
 	App(const std::string& name);
+	App(const App& other) = delete;
 	~App();
 
 	void Run();
 
-	sf::RenderWindow& GetWindow() { return m_Window; }
-
+	static sf::RenderWindow& GetWindow() { return s_Instance->m_Window; }
 	static App& Get() { return *s_Instance; }
 
 private:
